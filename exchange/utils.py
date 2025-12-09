@@ -1,7 +1,7 @@
 from decimal import Decimal
 from typing import Optional
 
-from django.db.models import Sum, models
+from django.db.models import Sum
 
 from .models import Movimiento
 
