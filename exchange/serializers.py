@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Movimiento
+from .models import Movimiento, Moneda
 
 
 class MovimientoSerializer(serializers.ModelSerializer):
@@ -45,3 +45,8 @@ class MovimientoSerializer(serializers.ModelSerializer):
         instance.full_clean()
         instance.save()
         return instance
+
+class MonedaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Moneda
+        fields = ["id", "codigo_iso", "nombre"]

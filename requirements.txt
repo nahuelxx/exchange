@@ -1,0 +1,17 @@
+# Core
+Django>=4.2,<5.0
+
+# Django REST Framework
+djangorestframework>=3.14,<4.0
+
+# CORS (para frontend React/Vite)
+django-cors-headers>=4.3,<5.0
+
+# WSGI server (Render / Railway)
+gunicorn>=21.2,<22.0
+
+# Environment variables
+python-dotenv>=1.0,<2.0
+
+# Database (opcional ahora, obligatorio luego)
+psycopg2-binary>=2.9,<3.0

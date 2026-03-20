@@ -48,8 +48,11 @@ class Movimiento(models.Model):
     total_ars = models.DecimalField(
         max_digits=18,
         decimal_places=2,
+        null=True,
+        blank=True,
         help_text="monto_divisa * cotizacion. Se calcula automáticamente.",
     )
+
 
     fuente = models.CharField(
         max_length=50,

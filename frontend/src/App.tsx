@@ -2,6 +2,7 @@ import React from "react";
 import { MovementForm } from "./components/MovementForm";
 import { MovementsTable } from "./components/MovementsTable";
 import { BalancesSummary } from "./components/BalancesSummary";
+import { AIInsights } from "./components/AIInsights";
 
 function App() {
   const [refreshKey, setRefreshKey] = React.useState(0);
@@ -51,6 +52,7 @@ function App() {
             </div>
             <MovementsTable refreshKey={refreshKey} />
           </section>
+          <AIInsights />
         </div>
       </div>
     </div>

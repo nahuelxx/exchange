@@ -1,10 +1,12 @@
-from rest_framework import mixins, viewsets
+from rest_framework import mixins, viewsets, generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from .ai.analyzer import analyze_exchange_data
+from .services.stats import build_daily_stats
 
 from .models import Movimiento, Moneda
-from .serializers import MovimientoSerializer
+from .serializers import MovimientoSerializer, MonedaSerializer
 from .mixins import BalanceMixin
 from .utils import calcular_resultado_periodo
 
@@ -110,3 +112,22 @@ class ResultadoAPIView(APIView):
             "resultado_ars": str(resultado),
         }
         return Response(data, status=status.HTTP_200_OK)
+    
+class MonedaListAPIView(generics.ListAPIView):
+    queryset = Moneda.objects.all().order_by("codigo_iso")
+    serializer_class = MonedaSerializer
+
+class AIAnalysisAPIView(APIView):
+
+    def get(self, request):
+
+        fecha = request.query_params.get("fecha")
+        question = request.query_params.get("q")
+
+        stats = build_daily_stats(fecha)
+
+        answer = analyze_exchange_data(stats, question)
+
+        return Response({
+            "analysis": answer
+        })
