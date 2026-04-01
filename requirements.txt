@@ -15,3 +15,6 @@ python-dotenv>=1.0,<2.0
 
 # Database (opcional ahora, obligatorio luego)
 psycopg2-binary>=2.9,<3.0
+
+# Claude code
+anthropic >= 0.87.0

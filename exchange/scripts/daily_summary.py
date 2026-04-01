@@ -1,10 +1,10 @@
-import os
 import json
-from datetime import datetime, timedelta, time
+import os
+from datetime import datetime, time, timedelta
 from decimal import Decimal
-from typing import Dict, Any, List
-import requests
+from typing import Any, Dict, List
 
+import requests
 
 API_BASE = os.getenv("EXCHANGE_API_BASE", "http://127.0.0.1:8000")
 TIMEZONE_NOTE = "El backend usa timezone del servidor. Este script filtra por fecha local en formato YYYY-MM-DD sobre fecha ISO."
